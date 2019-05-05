@@ -1,0 +1,7 @@
+---
+- name: v4l2rtspserver
+  systemd:
+    name: v4l2rtspserver
+    state: started
+    enabled: yes
+    daemon_reload: yes

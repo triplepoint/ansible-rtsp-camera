@@ -1,0 +1,14 @@
+[Unit]
+Description=v4l2rtspserver rtsp streaming server
+After=network.target
+
+[Service]
+ExecStartPre=/usr/bin/v4l2-ctl --set-ctrl h264_i_frame_period=5 --set-ctrl power_line_frequency=2 --set-ctrl horizontal_flip=1 --set-ctrl vertical_flip=1
+ExecStart=/usr/local/bin/v4l2rtspserver -F {{ rtsp_camera_frame_rate }}  -W {{ rtsp_camera_width }} -H {{ rtsp_camera_height }}
+Type=simple
+User=root
+Group=video
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

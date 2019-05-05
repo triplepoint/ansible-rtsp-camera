@@ -1,0 +1,41 @@
+---
+- name: Ensure the build packages are present
+  package: name={{ item }} state=present
+  with_items:
+    - git
+    - cmake
+    - v4l-utils
+    - liblog4cpp5-dev
+    - libv4l-dev
+    - liblivemedia-dev
+
+- name: Ensure the video 4 linux module is loaded
+  modprobe: name=bcm2835-v4l2 state=present
+
+- name: Ensure the video 4 linux module always loads on boot
+  lineinfile:
+    path: /etc/modules
+    line: "bcm2835-v4l2"
+    create: yes
+
+- name: Check if service file exists (as a proxy for whether the service is installed)
+  stat: path=/etc/systemd/system/v4l2rtspserver.service
+  register: _service_status
+  changed_when: false
+
+- import_tasks: build_and_install_rtsp_server.yml
+  when: _service_status.stat.exists or rtsp_camera_force_reinstall
+
+- name: Ensure the systemd service file is in place
+  template:
+    src: v4l2rtspserver.service.j2
+    dest: /etc/systemd/system/v4l2rtspserver.service
+    owner: root
+    group: root
+  notify: restart v4l2rtspserver
+
+- name: Ensure the service is enabled and started
+  systemd:
+    name: v4l2rtspserver
+    state: started
+    enabled: yes

@@ -1,0 +1,24 @@
+---
+- name: Ensure the v4l2 rtsp server git repo is in place
+  git:
+    repo: 'https://github.com/mpromonet/v4l2rtspserver'
+    dest: /tmp/v4l2rtspserver
+    version: HEAD
+
+- name: Cmake the server
+  command: cmake .
+  args:
+    chdir: /tmp/v4l2rtspserver
+
+- name: Make the server
+  command: make
+  args:
+    chdir: /tmp/v4l2rtspserver
+
+- name: Install the server
+  command: make install
+  args:
+    chdir: /tmp/v4l2rtspserver
+
+- name: Clean up the working directory
+  file: path=/tmp/v4l2rtspserver state=absent

@@ -1,0 +1,12 @@
+---
+# The camera server's frame rate in frames/sec
+rtsp_camera_frame_rate: 15
+
+# The streamed image's width
+rtsp_camera_width: 1640
+
+# The streamed image's height
+rtsp_camera_height: 1232
+
+# If true, force a rebuild of the service
+rtsp_camera_force_reinstall: false

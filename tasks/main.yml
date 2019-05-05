@@ -24,7 +24,7 @@
   changed_when: false
 
 - import_tasks: build_and_install_rtsp_server.yml
-  when: _service_status.stat.exists or rtsp_camera_force_reinstall
+  when: not _service_status.stat.exists or rtsp_camera_force_reinstall
 
 - name: Ensure the systemd service file is in place
   template:

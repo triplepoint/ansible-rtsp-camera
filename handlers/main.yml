@@ -1,7 +1,6 @@
 ---
 - name: restart v4l2rtspserver
-  systemd:
+  service:
     name: v4l2rtspserver
     state: restarted
     enabled: yes
-    daemon_reload: yes

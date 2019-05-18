@@ -35,8 +35,7 @@
   notify: restart v4l2rtspserver
 
 - name: Ensure the service is enabled and started
-  systemd:
+  service:
     name: v4l2rtspserver
     state: started
     enabled: yes
-    daemon_reload: yes

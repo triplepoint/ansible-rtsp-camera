@@ -3,10 +3,10 @@
 rtsp_camera_frame_rate: 15
 
 # The streamed image's width
-rtsp_camera_width: 1640
+rtsp_camera_width: 640
 
 # The streamed image's height
-rtsp_camera_height: 1232
+rtsp_camera_height: 480
 
 # If true, force a rebuild of the service
 rtsp_camera_force_reinstall: false

@@ -8,5 +8,20 @@ rtsp_camera_width: 640
 # The streamed image's height
 rtsp_camera_height: 480
 
+# The --set-ctrl commands to pass v4l2-ctl
+# before starting the camera service
+#
+# See: https://www.mankier.com/1/v4l2-ctl
+#
+# Also see the output of `v4l2-ctl -l` and
+# the more verbose `v4l2-ctl -L` on your
+# specific hardware, for the list of options
+# and their values.
+rtsp_camera_v4l2_set_ctrl:
+  h264_i_frame_period: 5
+  power_line_frequency: 2
+  horizontal_flip: 1
+  vertical_flip: 1
+
 # If true, force a rebuild of the service
 rtsp_camera_force_reinstall: false

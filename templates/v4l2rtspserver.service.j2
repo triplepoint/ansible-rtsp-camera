@@ -10,7 +10,7 @@ User=root
 Group=video
 ExecStartPre=/usr/bin/v4l2-ctl{% for key, value in rtsp_camera_v4l2_set_ctrl.items() %} --set-ctrl {{ key }}={{ value }}{% endfor %}
 
-ExecStart=/usr/local/bin/v4l2rtspserver -F {{ rtsp_camera_frame_rate }}  -W {{ rtsp_camera_width }} -H {{ rtsp_camera_height }}
+ExecStart=/usr/local/bin/v4l2rtspserver -F {{ rtsp_camera_frame_rate }} -W {{ rtsp_camera_width }} -H {{ rtsp_camera_height }} -P {{ rtsp_camera_port }} {{ rtsp_camera_device }}
 
 [Install]
 WantedBy=multi-user.target

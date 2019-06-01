@@ -25,3 +25,10 @@ rtsp_camera_v4l2_set_ctrl:
 
 # If true, force a rebuild of the service
 rtsp_camera_force_reinstall: false
+
+# RTSP port
+rtsp_camera_port: 8554
+
+# Which device on the machine should be used
+# as the video source?
+rtsp_camera_device: "/dev/video0"

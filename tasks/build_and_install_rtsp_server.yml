@@ -1,4 +1,10 @@
 ---
+- name: Ensure the build packages are present
+  package: name={{ item }} state=present
+  with_items:
+    - git
+    - cmake
+
 - name: Ensure the v4l2 rtsp server git repo is in place
   git:
     repo: 'https://github.com/mpromonet/v4l2rtspserver'

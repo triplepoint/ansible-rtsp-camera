@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Jonathan Hanson
+  description: An RTSP camera streaming service
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Raspbian
+      versions: []
+  galaxy_tags:
+    - rtsp
+    - rtp
+    - camera
+dependencies: []

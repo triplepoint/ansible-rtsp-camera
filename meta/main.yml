@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: rtsp_camera
   author: Jonathan Hanson
   description: An RTSP camera streaming service
   license: MIT

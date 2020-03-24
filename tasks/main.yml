@@ -1,6 +1,8 @@
 ---
 - name: Ensure the build packages are present
-  package: name={{ item }} state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - v4l-utils
     - liblog4cpp5-dev
@@ -8,7 +10,9 @@
     - liblivemedia-dev
 
 - name: Ensure the video 4 linux module is loaded
-  modprobe: name=bcm2835-v4l2 state=present
+  modprobe:
+    name: bcm2835-v4l2
+    state: present
 
 - name: Ensure the video 4 linux module always loads on boot
   lineinfile:
@@ -17,7 +21,8 @@
     create: yes
 
 - name: Check if service file exists (as a proxy for whether the service is installed)
-  stat: path=/etc/systemd/system/v4l2rtspserver.service
+  stat:
+    path: /etc/systemd/system/v4l2rtspserver.service
   register: _service_status
   changed_when: false
 

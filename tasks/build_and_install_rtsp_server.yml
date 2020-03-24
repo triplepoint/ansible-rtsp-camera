@@ -1,6 +1,8 @@
 ---
 - name: Ensure the build packages are present
-  package: name={{ item }} state=present
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - git
     - cmake
@@ -27,4 +29,6 @@
     chdir: /tmp/v4l2rtspserver
 
 - name: Clean up the working directory
-  file: path=/tmp/v4l2rtspserver state=absent
+  file:
+    path: /tmp/v4l2rtspserver
+    state: absent

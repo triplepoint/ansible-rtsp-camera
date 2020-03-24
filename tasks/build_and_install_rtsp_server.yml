@@ -11,7 +11,7 @@
   git:
     repo: 'https://github.com/mpromonet/v4l2rtspserver'
     dest: /tmp/v4l2rtspserver
-    version: HEAD
+    version: "{{ rtsp_camera_git_commit }}"
 
 - name: Cmake the server
   command: cmake .

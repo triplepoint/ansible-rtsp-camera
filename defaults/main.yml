@@ -26,6 +26,9 @@ rtsp_camera_v4l2_set_ctrl:
 # If true, force a rebuild of the service
 rtsp_camera_force_reinstall: false
 
+# Which git commit should we install, if building from source?
+rtsp_camera_git_commit: "v0.2.0"
+
 # RTSP port
 rtsp_camera_port: 8554
 

@@ -7,6 +7,11 @@
     - git
     - cmake
 
+- name: Clean up the working directory
+  file:
+    path: /tmp/v4l2rtspserver
+    state: absent
+
 - name: Ensure the v4l2 rtsp server git repo is in place
   git:
     repo: 'https://github.com/mpromonet/v4l2rtspserver'
@@ -14,17 +19,20 @@
     version: "{{ rtsp_camera_git_commit }}"
 
 - name: Cmake the server
-  command: cmake .
+  command:                   # noqa 301
+    cmd: cmake .
   args:
     chdir: /tmp/v4l2rtspserver
 
 - name: Make the server
-  command: make
+  command:                   # noqa 301
+    cmd: make
   args:
     chdir: /tmp/v4l2rtspserver
 
 - name: Install the server
-  command: make install
+  command:                   # noqa 301
+    cmd: make install
   args:
     chdir: /tmp/v4l2rtspserver
 

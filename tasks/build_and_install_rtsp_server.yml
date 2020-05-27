@@ -41,6 +41,7 @@
     cmd: make install
   args:
     chdir: "{{ rtsp_camera_build_directory }}"
+  notify: restart v4l2rtspserver
 
 - name: Clean up the working directory
   file:

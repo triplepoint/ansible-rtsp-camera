@@ -28,7 +28,9 @@ rtsp_camera_force_reinstall: false
 
 # Which git commit should we install, if building from source?
 # https://github.com/mpromonet/v4l2rtspserver
-rtsp_camera_git_commit: "v0.2.0"
+# Note that commits here that aren't tags or branches will result in
+# a full history clone, instead of a depth=1 shallow clone.
+rtsp_camera_git_commit: "4940f1f98950793cc496bfd451af807abd991f41"  # This version deals with some baggage with live555 that was preventing building v0.2.0
 
 # RTSP port
 rtsp_camera_port: 8554

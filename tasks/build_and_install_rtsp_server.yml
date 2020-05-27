@@ -7,36 +7,43 @@
     - git
     - cmake
 
-- name: Clean up the working directory
+- name: Ensure the working directory is deleted
   file:
-    path: /tmp/v4l2rtspserver
+    path: "{{ rtsp_camera_build_directory }}"
     state: absent
+
+- name: Ensure the working directory exists
+  file:
+    path: "{{ rtsp_camera_build_directory }}"
+    state: directory
 
 - name: Ensure the v4l2 rtsp server git repo is in place
   git:
     repo: 'https://github.com/mpromonet/v4l2rtspserver'
-    dest: /tmp/v4l2rtspserver
+    dest: "{{ rtsp_camera_build_directory }}"
     version: "{{ rtsp_camera_git_commit }}"
+    depth: 1
 
 - name: Cmake the server
   command:                   # noqa 301
     cmd: cmake .
   args:
-    chdir: /tmp/v4l2rtspserver
+    chdir: "{{ rtsp_camera_build_directory }}"
 
 - name: Make the server
   command:                   # noqa 301
     cmd: make
   args:
-    chdir: /tmp/v4l2rtspserver
+    chdir: "{{ rtsp_camera_build_directory }}"
 
 - name: Install the server
   command:                   # noqa 301
     cmd: make install
   args:
-    chdir: /tmp/v4l2rtspserver
+    chdir: "{{ rtsp_camera_build_directory }}"
 
 - name: Clean up the working directory
   file:
-    path: /tmp/v4l2rtspserver
+    path: "{{ rtsp_camera_build_directory }}"
     state: absent
+  when: not rtsp_camera_preserve_build_dir

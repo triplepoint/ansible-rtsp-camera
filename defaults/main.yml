@@ -36,3 +36,10 @@ rtsp_camera_port: 8554
 # Which device on the machine should be used
 # as the video source?
 rtsp_camera_device: "/dev/video0"
+
+# To which directory should we clone down the git
+# repository when recompiling the service?
+rtsp_camera_build_directory: "/opt/v4l2rtspserver"
+
+# Should we keep the build directory after we're done?
+rtsp_camera_preserve_build_dir: true

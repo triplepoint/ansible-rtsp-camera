@@ -28,6 +28,7 @@
 
 - import_tasks: build_and_install_rtsp_server.yml
   when: (not _service_status.stat.exists) or rtsp_camera_force_reinstall
+  notify: restart v4l2rtspserver
 
 - name: Ensure the systemd service file is in place
   template:

@@ -3,4 +3,5 @@
   service:
     name: v4l2rtspserver
     state: restarted
+    daemon_reload: yes
     enabled: yes

@@ -1,7 +1,0 @@
----
-- name: Converge
-  hosts: all
-  tasks:
-    - name: "Include ansible-rtsp-camera"
-      include_role:
-        name: "ansible-rtsp-camera"

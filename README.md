@@ -1,4 +1,4 @@
-# Intro [![Build Status](https://www.travis-ci.com/triplepoint/ansible-rtsp-camera.svg?branch=master)](https://www.travis-ci.com/triplepoint/ansible-rtsp-camera)
+# Intro [![Build Status](https://www.travis-ci.com/triplepoint/ansible-rtsp-camera.svg?branch=main)](https://www.travis-ci.com/triplepoint/ansible-rtsp-camera)
 Build, configure, and install the V4L2 RTSP camera streaming service at:
 https://github.com/mpromonet/v4l2rtspserver
 

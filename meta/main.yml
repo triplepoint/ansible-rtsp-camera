@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: rtsp_camera
+  namespace: triplepoint
   author: Jonathan Hanson
   description: An RTSP camera streaming service
   license: MIT

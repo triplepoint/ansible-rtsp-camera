@@ -18,7 +18,8 @@
   lineinfile:
     path: /etc/modules
     line: "bcm2835-v4l2"
-    create: yes
+    create: true
+    mode: 0644
 
 - name: Check if service file exists (as a proxy for whether the service is installed)
   stat:
@@ -35,10 +36,11 @@
     dest: /etc/systemd/system/v4l2rtspserver.service
     owner: root
     group: root
+    mode: 0644
   notify: restart v4l2rtspserver
 
 - name: Ensure the service is enabled and started
   service:
     name: v4l2rtspserver
     state: started
-    enabled: yes
+    enabled: true

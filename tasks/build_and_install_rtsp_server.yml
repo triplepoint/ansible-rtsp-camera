@@ -16,6 +16,7 @@
   file:
     path: "{{ rtsp_camera_build_directory }}"
     state: directory
+    mode: 0755
 
 - name: Ensure the v4l2 rtsp server git repo is in place
   git:
